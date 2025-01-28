@@ -105,6 +105,7 @@ public class Day2P2{
         int x = sc.nextInt();
         int f = sc.nextInt();
         
+        sc.close();
         int[] boxes = IntStream.range(0,n).map(i -> sc.nextInt()).toArray();
         int[] res = new int[n-k+1];
         
