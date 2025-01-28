@@ -111,12 +111,12 @@ public class Day2P2{
         int i=0;
         while((i+k)<=n){
             Map<Integer,Integer> freq = new HashMap<>();
-            for(int b : boxes){
-                freq.put(b, freq.getOrDefault(b,0)+1);
+            for(int j=i;j<i+k;j++){
+                freq.put(boxes[j], freq.getOrDefault(boxes[j],0)+1);
             }
             PriorityQueue<Integer> scores = new PriorityQueue<>((a, b) -> {
-                int priorA = a * (int)Math.pow(freq.get(a),f);
-                int priorB = b * (int)Math.pow(freq.get(b),f);
+                int priorA = freq.get(a) * (int)Math.pow(a,f);
+                int priorB = freq.get(b) * (int)Math.pow(b,f);
                 if(priorA!=priorB) return priorB-priorA;
                 return b - a;
                 });
