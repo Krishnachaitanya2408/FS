@@ -32,3 +32,35 @@ Sample Output-2:
 192.0.2.0 192.0.2.255
 
  */
+
+
+import java.util.*;
+public class Day4CN2{
+    public static void main(String... args){
+        Scanner sc = new Scanner(System.in);
+        String ipaddr = sc.nextLine();
+        int CIDR = sc.nextInt();
+
+        String[] ip = ipaddr.split("\\.");
+        int mask = (int) (0xffffffff  << (32 - CIDR));
+        String[] subnet = String.format("%d.%d.%d.%d", 
+                                    mask >> 24 & 0xff ,
+                                    mask >> 16 & 0xff,
+                                    mask >> 8 & 0xff,
+                                    mask >> 0 & 0xff).split("\\.");
+                                    
+        String[] network = new String[4];
+        String[] broadcast = new String[4];
+        
+        for(int i=0;i<4;i++){
+            int ipi = Integer.parseInt(ip[i]);
+            int subi = Integer.parseInt(subnet[i]);
+            int neti = ipi&subi;
+            network[i] = String.valueOf(neti);
+            int broadi = neti | (~subi & 0xff);
+            broadcast[i] = String.valueOf(broadi);
+        }
+        
+        System.out.println(String.join(".", network) + " " + String.join(".", broadcast));
+    }
+}
