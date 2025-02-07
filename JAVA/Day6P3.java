@@ -64,3 +64,87 @@ Level 3 (Odd) → 4 5 6 7 (Left to Right)
 
 */
 
+
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+    
+    TreeNode(int val) {
+     this.val = val;
+     this.left = this.right = null;
+    }
+}
+ 
+ public class Day6P3 {
+    private static int preIndex;
+    
+    public static TreeNode buildTree(List<Integer> inorder, List<Integer> preorder, int inStart, int inEnd) {
+        if (inStart > inEnd || preIndex >= preorder.size()) return null;
+        
+        int rootVal = preorder.get(preIndex++);
+        TreeNode root = new TreeNode(rootVal);
+        
+        int rootIndex = inorder.indexOf(rootVal);
+        
+        root.left = buildTree(inorder, preorder, inStart, rootIndex-1);
+        root.right = buildTree(inorder, preorder, rootIndex+1, inEnd);
+        
+        return root;
+    }
+ 
+    public static void spiralOrderTraversal(TreeNode root, int lowerLevel, int upperLevel) {
+        if (root == null) return;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int level = 1;
+        boolean leftToRight = true;
+
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            List<Integer> curLevel = new ArrayList<>();
+            
+            for(int i=0;i<size;i++){
+                TreeNode node = queue.poll();
+                curLevel.add(node.val);
+
+                if(node.left!=null) queue.add(node.left);
+                if(node.right!=null) queue.add(node.right);
+            }
+
+            if(level>=lowerLevel && level<=upperLevel){
+                if(!leftToRight) Collections.reverse(curLevel);
+
+                for(int i=0;i<curLevel.size();i++){
+                    System.out.print(curLevel.get(i) + " ");
+                }
+            }
+
+            leftToRight = !leftToRight;
+            level++;
+
+        }
+    }
+    public static void main(String... args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        List<Integer> inorder = new ArrayList<>();
+        List<Integer> preorder = new ArrayList<>();
+        
+        for (int i = 0; i < n; i++) {
+         inorder.add(sc.nextInt());
+        }
+        for (int i = 0; i < n; i++) {
+         preorder.add(sc.nextInt());
+        }
+        int lowerLevel = sc.nextInt();
+        int upperLevel = sc.nextInt();
+        
+        preIndex = 0;
+        
+        TreeNode root = buildTree(inorder, preorder, 0, n - 1);
+        spiralOrderTraversal(root, lowerLevel, upperLevel);
+    }
+ }
