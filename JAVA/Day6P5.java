@@ -45,76 +45,76 @@ Level Order: [1, 2, 3, 4, 5, 6, 7]
 
  */
 
-import java.util.*;
+ import java.util.*;
 
  class TreeNode {
      int val;
      TreeNode left, right;
- 
+     
      TreeNode(int val) {
-         this.val = val;
-         this.left = this.right = null;
+      this.val = val;
+      this.left = this.right = null;
      }
- }
- 
- public class Day6P5 {
+  }
+  
+  public class Day6P5 {
      private static Map<Integer, Integer> inorderIndexMap;
      private static int preIndex;
      static List<Integer> ans = new ArrayList<>();
- 
+     
      public static TreeNode buildTree(int[] inorder, int[] preorder, int inStart, int inEnd) {
          if (inStart > inEnd) return null;
- 
+         
          int rootVal = preorder[preIndex++];
          TreeNode root = new TreeNode(rootVal);
- 
+         
          int rootIndex = inorderIndexMap.get(rootVal);
- 
+         
          root.left = buildTree(inorder, preorder, inStart, rootIndex-1);
          root.right = buildTree(inorder, preorder, rootIndex+1, inEnd);
- 
+         
          return root;
      }
- 
+  
      private static void printOrder(TreeNode root) {
          if (root == null) return;
- 
+         
          Queue<TreeNode> queue = new LinkedList<>();
          queue.add(root);
- 
+         
          while (!queue.isEmpty()) {
-             TreeNode node = queue.poll();
-             ans.add(node.val);
- 
-             if (node.left != null) queue.add(node.left);
-             if (node.right != null) queue.add(node.right);
+          TreeNode node = queue.poll();
+          ans.add(node.val);
+         
+          if (node.left != null) queue.add(node.left);
+          if (node.right != null) queue.add(node.right);
          }
      }
- 
+     
      public static void main(String... args) {
          Scanner sc = new Scanner(System.in);
          int n = sc.nextInt();
          int inorder[] = new int[n];
          int preorder[] = new int[n];
- 
+         
          for (int i = 0; i < n; i++) {
-             inorder[i] = sc.nextInt();
+          inorder[i] = sc.nextInt();
          }
          for (int i = 0; i < n; i++) {
-             preorder[i] = sc.nextInt();
+          preorder[i] = sc.nextInt();
          }
-
-        
+         
+         
          inorderIndexMap = new HashMap<>();
          for (int i = 0; i < inorder.length; i++) {
-             inorderIndexMap.put(inorder[i], i);
+          inorderIndexMap.put(inorder[i], i);
          }
          preIndex = 0;
- 
+         
          TreeNode root = buildTree(inorder, preorder, 0, n - 1);
          printOrder(root);
- 
-       
+         
+         
          System.out.println(ans);
      }
- }
+  }

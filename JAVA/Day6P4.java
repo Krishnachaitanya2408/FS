@@ -46,51 +46,49 @@ The tree looks like this:
     4   5 6  7
 The in order is : 4 2 5 1 6 3 7
 
+*/
 
+import java.util.*;
+class Tree{
+    int root;
+    Tree left;
+    Tree right;
+    Tree(int root){
+        this.root = root;
+        this.left = null;
+        this.right = null;
+    }
+}
 
- */
-
- import java.util.*;
- class Tree{
-     int root;
-     Tree left;
-     Tree right;
-     Tree(int root){
-         this.root = root;
-         this.left = null;
-         this.right = null;
-     }
- }
- 
- class BuildTree{
-     public Tree construct(int[] nums, int pos){
-         if(pos>=nums.length) return null;
-         Tree root = new Tree(nums[pos]);
-         root.left = construct(nums, 2*pos);
-         root.right = construct(nums, 2*pos+1);
-         return root;
-         
-     }
- }
- public class Day6P4{
-     public static void main(String... args){
-         Scanner sc = new Scanner(System.in);
-         int n = sc.nextInt();
-         int[] nums = new int[n+1];
-         
-         for(int i=1;i<=n;i++) nums[i] = sc.nextInt();
-         
-         BuildTree buildtree = new BuildTree();
-         Tree tree = buildtree.construct(nums, 1);
-         
-         printInorder(tree);
-         
-     }
-     
-     public static void printInorder(Tree node){
-       if (node == null) return;
-       printInorder(node.left);
-       System.out.print(node.root + " ");
-       printInorder(node.right);
-     }
- }
+class BuildTree{
+    public Tree construct(int[] nums, int pos){
+        if(pos>=nums.length) return null;
+        Tree root = new Tree(nums[pos]);
+        root.left = construct(nums, 2*pos);
+        root.right = construct(nums, 2*pos+1);
+        return root;
+        
+    }
+}
+public class Day6P4{
+    public static void main(String... args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n+1];
+        
+        for(int i=1;i<=n;i++) nums[i] = sc.nextInt();
+        
+        BuildTree buildtree = new BuildTree();
+        Tree tree = buildtree.construct(nums, 1);
+        
+        printInorder(tree);
+        
+    }
+    
+    public static void printInorder(Tree node){
+      if (node == null) return;
+      printInorder(node.left);
+      System.out.print(node.root + " ");
+      printInorder(node.right);
+    }
+}

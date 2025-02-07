@@ -48,58 +48,76 @@ The level order is : 1 2 3 4 5 6 7
  */
 
 
-import java.util.*;
+ import java.util.*;
 
-class Tree{
-    int root;
-    Tree left;
-    Tree right;
-    Tree(int root){
-      this.root = root;
-    }
-}
-
-class BinaryTree{
-  private int postInd;
-  public Tree construct(List<Integer> inorder, List<Integer> postorder, int start, int end){
-    if(start>end) return null;
-    int rootele = postorder.get(postInd--);
-    int rootInd = inorder.indexOf(rootele);
-    Tree tree = new Tree(rootele);
-    tree.right = construct(inorder, postorder, rootInd+1, end);
-    tree.left = construct(inorder, postorder, start, rootInd-1);
-
-    return tree; 
-  }
-
-  public Tree buildTree(List<Integer> inorder, List<Integer> postorder){
-    postInd = postorder.size()-1;
-    return construct(inorder, postorder, 0 , inorder.size()-1);
-  }
-}
-public class Day6P1{
-    public static void main(String... args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        List<Integer> inorder = new ArrayList<>();
-        List<Integer> postorder = new ArrayList<>();
+ class TreeNode {
+     int val;
+     TreeNode left, right;
+ 
+     TreeNode(int val) {
+         this.val = val;
+         this.left = this.right = null;
+     }
+ }
+ 
+ public class Day6P1 {
+     private static Map<Integer, Integer> inorderIndexMap;
+     private static int postIndex;
+     static List<Integer> ans = new ArrayList<>();
+ 
+     public static TreeNode buildTree(int[] inorder, int[] postorder, int inStart, int inEnd) {
+         if (inStart > inEnd) return null;
+ 
+         int rootVal = postorder[postIndex--];
+         TreeNode root = new TreeNode(rootVal);
+ 
+         int rootIndex = inorderIndexMap.get(rootVal);
+ 
+         root.right = buildTree(inorder, postorder, rootIndex + 1, inEnd);
+         root.left = buildTree(inorder, postorder, inStart, rootIndex - 1);
+ 
+         return root;
+     }
+ 
+     private static void printLevelOrder(TreeNode root) {
+         if (root == null) return;
+ 
+         Queue<TreeNode> queue = new LinkedList<>();
+         queue.add(root);
+ 
+         while (!queue.isEmpty()) {
+             TreeNode node = queue.poll();
+             ans.add(node.val);
+ 
+             if (node.left != null) queue.add(node.left);
+             if (node.right != null) queue.add(node.right);
+         }
+     }
+ 
+     public static void main(String... args) {
+         Scanner sc = new Scanner(System.in);
+         int n = sc.nextInt();
+         int inorder[] = new int[n];
+         int postorder[] = new int[n];
+ 
+         for (int i = 0; i < n; i++) {
+             inorder[i] = sc.nextInt();
+         }
+         for (int i = 0; i < n; i++) {
+             postorder[i] = sc.nextInt();
+         }
+ 
         
-        for(int i=0;i<n;i++) inorder.add(sc.nextInt());
-        
-        for(int i=0;i<n;i++) postorder.add(sc.nextInt());
-
-        BinaryTree binarytree = new BinaryTree();
-
-        Tree root = binarytree.buildTree(inorder, postorder);
-
-        printInorder(root);
-
-    }
-
-    public static void printInorder(Tree node){
-      if (node == null) return;
-      System.out.print(node.root + " ");
-      printInorder(node.left);
-      printInorder(node.right);
-    }
-}
+         inorderIndexMap = new HashMap<>();
+         for (int i = 0; i < inorder.length; i++) {
+             inorderIndexMap.put(inorder[i], i);
+         }
+         postIndex = n - 1;
+ 
+         TreeNode root = buildTree(inorder, postorder, 0, n - 1);
+         printLevelOrder(root);
+ 
+       
+         System.out.println(ans);
+     }
+ }
