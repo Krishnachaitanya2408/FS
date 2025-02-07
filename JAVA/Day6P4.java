@@ -83,6 +83,7 @@ public class Day6P4{
         
         printInorder(tree);
         
+        sc.close();
     }
     
     public static void printInorder(Tree node){

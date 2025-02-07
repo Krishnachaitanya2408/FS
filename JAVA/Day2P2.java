@@ -137,5 +137,7 @@ public class Day2P2{
         }
         
         for(int sum : res) System.out.println(sum);
+
+        sc.close();
     }
 }

@@ -74,6 +74,8 @@ Sample Output:
              r++;
          }
          System.out.println(count);
+
+         sc.close();    
      }
      public static boolean isprime(int n){
          if(n<=1) return false;

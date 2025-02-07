@@ -26,5 +26,7 @@ public class Day3P1{
             res = Math.max(res, i-j+1);
         }
         System.out.println(res);
+
+        sc.close();
     }
 }

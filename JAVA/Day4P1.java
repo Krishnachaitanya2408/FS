@@ -116,5 +116,7 @@ public class Day4P1{
             r++;
         }
         System.out.println(res);
+
+        sc.close();
     }
 }

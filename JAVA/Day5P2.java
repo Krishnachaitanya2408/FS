@@ -111,5 +111,7 @@ public class Day5P2{
         }
 
         System.out.println(Arrays.toString(res));
+
+        sc.close();
     }
 }

@@ -158,5 +158,7 @@ import java.util.*;
             printorder(root, cur[0], cur[1]);
             System.out.println();
          }
+
+         sc.close();
      }
  }

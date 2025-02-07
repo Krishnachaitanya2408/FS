@@ -83,6 +83,8 @@ are the same, resulting in a difference of 0.
          }
  
          System.out.println(maxVolatility);
+
+         sc.close();
      }
  }
  

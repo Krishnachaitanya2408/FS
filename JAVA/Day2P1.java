@@ -87,6 +87,8 @@ public class Day2P1{
         while(!pq.isEmpty()){
             System.out.println(pq.poll());
         }
+
+        sc.close();
     }
     
     

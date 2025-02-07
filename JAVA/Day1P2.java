@@ -87,5 +87,6 @@ to get bridge = "BBBBBBBRRR". This requires 2 operations.
          }
          
          System.out.println(res);
+         sc.close();
      }
  }

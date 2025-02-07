@@ -146,5 +146,7 @@ class TreeNode {
         
         TreeNode root = buildTree(inorder, preorder, 0, n - 1);
         spiralOrderTraversal(root, lowerLevel, upperLevel);
+
+        sc.close();
     }
  }

@@ -96,5 +96,7 @@ public class Day4P2{
             res += tot;
         }
         System.out.println(res);
+
+        sc.close();
     }
 }
