@@ -89,21 +89,22 @@ public class Day10P3{
         return root;
     }
     
-    public static boolean checkHeight(Node root, int ele, List<Integer> l1) {
-        if (root == null) return false;
-    
-        l1.add(root.val);
-    
-        if (root.val == ele) return true;
-    
-        if (checkHeight(root.left, ele, l1) || checkHeight(root.right, ele, l1)) 
-            return true;
-    
-        l1.remove(l1.size() - 1); 
-        return false;
+    public static int checkHeight(Node root, int ele, int d) {
+        if (root == null) return -1;
+        if (root.val == ele) return d;
+        int left = checkHeight(root.left, ele, d+1);
+        if(left!=-1) return left;
+        return checkHeight(root.right, ele, d+1);
     }
     
-    
+    public static Node findLCA(Node root, int n1, int n2){
+        if(root == null || root.val == n1 || root.val == n2) return root;
+        Node left = findLCA(root.left, n1, n2);
+        Node right = findLCA(root.right, n1, n2);
+        if(left == null) return right;
+        else if(right == null) return left;
+        else return root;
+    }
     public static void main(String... args){
         Scanner sc = new Scanner(System.in);
         String[] input = sc.nextLine().split(" ");
@@ -114,22 +115,12 @@ public class Day10P3{
         for(int i=0;i<nodes.length;i++) nodes[i] = Integer.parseInt(input[i]);
         
         Node root = build_tree(nodes);
+        int d1 = checkHeight(root, n1, 0);
+        int d2 = checkHeight(root, n2, 0);
 
-        List<Integer> l1 = new ArrayList<>();
-        checkHeight(root, n1, l1);
- 
-        List<Integer> l2 = new ArrayList<>();
-        checkHeight(root, n2, l2);
+        Node LCA = findLCA(root, n1, n2);
+        int LCAdist = checkHeight(root, LCA.val, 0);
 
-        int LCA = 0;
-        for(int i=0;i<Math.min(l1.size(), l2.size());i++){
-            if(l1.get(i)==l2.get(i)) LCA = l1.get(i);
-            else break;
-        }
-
-        List<Integer> l3 = new ArrayList<>();
-        checkHeight(root, LCA, l3);
-
-        System.out.println(l1.size()+l2.size()-2*l3.size());
+        System.out.println(d1+d2-2*LCAdist);
     }
 }

@@ -55,6 +55,17 @@
 - Game reward optimization - Optimizing game rewards for fairness
 - Unique reward calculation - Calculating unique rewards with minimum sum
 
+### Day 10
+- Binary Tree Analysis - Self-mirror tree verification
+- String Processing - Date extraction and pattern matching
+- Network Distance Calculation - Finding shortest paths in binary trees
+- Level-wise Data Processing - Processing tree data level by level
+
+### Day 11
+- Array Manipulation - Processing scores with neighbor constraints
+- Minimum Number Formation - Creating minimum sums from digits
+- Game Score Optimization - Optimizing player scores
+
 ## JavaScript Topics
 
 ### Day 1
