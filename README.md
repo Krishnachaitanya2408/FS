@@ -66,6 +66,12 @@
 - Minimum Number Formation - Creating minimum sums from digits
 - Game Score Optimization - Optimizing player scores
 
+### Day 14
+- Stack Implementation - Using stacks for text processing
+- Score Management - Managing game scores with special operations 
+- String Processing - Processing strings with special characters
+- State Management - Managing states with stack operations
+
 ## JavaScript Topics
 
 ### Day 1
