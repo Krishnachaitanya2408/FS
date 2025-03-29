@@ -42,7 +42,7 @@ since they have no descendant pages.
 */
 
 import java.util.*;
-Class Tree{
+class Tree{
     int val;
     Tree left, right;
     Tree(int val){
@@ -53,36 +53,46 @@ Class Tree{
 public class Day15P3{
     public static void main(String... args){
         Scanner sc = new Scanner(System.in);
-        String input[] = sc.nextLine.split(",");
+        String input[] = sc.nextLine().split(",");
         int[] nodes = new int[input.length];
         for(int i=0;i<input.length;i++) nodes[i] = Integer.parseInt(input[i]);
         Tree root = buildTree(nodes);
-        int count = 0;
+        int[] count = new int[1];
+        find(root, count);
+        System.out.println(count[0]);
+        sc.close();
     }
     
     public static Tree buildTree(int[] nodes){
         if(nodes.length==0) return null;
         Queue<Tree> q = new LinkedList<>();
-        int i=0;
-        Tree root = new Tree(nodes[0])
+        Tree root = new Tree(nodes[0]);
+        int i=1;
         q.add(root);
         while(i<nodes.length){
             Tree node = q.poll();
-            if(i<nodes.length && nodes[i]=-1){
+            if(i<nodes.length && nodes[i]!=-1){
                 node.left = new Tree(nodes[i]);
                 q.add(node.left);
             }
-            if(i<nodes.length && nodes[i]=-1){
+            i++;
+            if(i<nodes.length && nodes[i]!=-1){
                 node.right = new Tree(nodes[i]);
                 q.add(node.right);
             }
+            i++;
         }
+        return root;
     }
     
-    public static int find(Tree root, int sum, int count){
-        if(root==null) return 0;
-        if(sum == root.val || root.val == 0) count++;
-        sum += find(root.left, sum, count) + find(root.right, sum, count);
+    public static int find(Tree node, int[] count){
+        if(node==null) return 0;
+        if(node.val==0) count[0]++;
+        if(node.left==null && node.right==null) return node.val;
+        int left = find(node.left, count);
+        int right = find(node.right, count);
+        if(node.val == left+right) count[0]++;
+        return node.val + left + right;
     }
     
 }
