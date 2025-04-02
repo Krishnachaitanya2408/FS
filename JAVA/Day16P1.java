@@ -58,8 +58,8 @@ public class Day16P1{
         int[] sortedScore = score.clone();
         Arrays.sort(sortedScore);
         Map<Integer, Integer> rankMap = new HashMap<>();
-        for(int i=0;i<n;i++){
-            rankMap.put(sortedScore[i], i+1);
+        for(int i=n-1;i>=0;i++){
+            rankMap.put(sortedScore[i], n-i);
         }
         for(int i=0;i<n;i++){
             if(rankMap.get(score[i]) == 1) ans[i] = "Champion";
