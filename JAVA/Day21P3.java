@@ -73,3 +73,21 @@ Sample Output-3:
 
  */
 
+ import java.util.*;
+ public class Day21P3{
+     public static void main(String... args){
+         Scanner sc = new Scanner(System.in);
+         int n = sc.nextInt();
+         int k = sc.nextInt();
+         int[] s = new int[n];
+         for(int i=0;i<n;i++) s[i] = sc.nextInt();
+         
+         for(int i=1;i<n-1;i++){
+             if(s[i-1] == 0 && s[i]==0 && s[i+1]==0){
+                     k--;
+                     s[i] = 1;
+                 }
+             }
+         System.out.println(k<=0?true:false);
+     }
+ }
