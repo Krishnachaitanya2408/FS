@@ -47,27 +47,26 @@ SAMPLE OUTPUT-2:
 
  public class Day25P3{
      public static void main(String... args){
-         Scanner sc = new Scanner(System.in);
-         String s = sc.next();
-         int leftBracketCount = 0, rightBracketCount = 0;
-         StringBuilder sb = new StringBuilder();
- 
-         for (int i = 0; i < s.length(); i++) {
-             char ch = s.charAt(i);
- 
-             if (ch == '['){
-                 leftBracketCount++;
-                 if (leftBracketCount > 1) sb.append(ch);
-             } 
-             else if (ch == ']'){
-                 rightBracketCount++;
-                 if (rightBracketCount < leftBracketCount) sb.append(ch);
-             }
-             else{
-                 sb.append(ch);
-             }
-         }
- 
-         System.out.println(sb.toString());
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+
+        StringBuilder result = new StringBuilder();
+        int count = 0;
+
+        for (char c : S.toCharArray()) {
+            if (c == '[') {
+                if (count > 0) {
+                    result.append(c);
+                }
+                count++;
+            } else if (c == ']') {
+                count--;
+                if (count > 0) {
+                    result.append(c);
+                }
+            }
+        }
+
+        System.out.println(result.toString());
      }
  }
