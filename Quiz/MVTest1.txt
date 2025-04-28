@@ -1,0 +1,33 @@
+Prerequisite:1) Create SQL Worksheet with the name MaterializedView
+
+2)Create Database and schema is public
+
+create database sfd_demo_day1
+
+step 1) Crete a Table:employee with columns employee_id INT,first_name STRING,last_name STRING ,email STRING,department STRING
+
+CREATE OR REPLACE TABLE employee (
+    employee_id INT,
+    first_name STRING,
+    last_name STRING,
+    email STRING,
+    department STRING
+);
+
+step 2) (before step2 Download CSV File)
+Insert values to employee table from csv file
+ Data->Add Data->Load Data Into a Table->Browse->Select Database and Schema->Select Table(Created in step1)->Next->Load
+
+step 3) write a query to retrieve all the records from employee table, orderby employee_id
+
+
+step4)Create a materialized view to group employees by department and counts them.
+
+NOTE:mv_employee_department_count: Name of the materialized view.
+
+
+Step 4)Write a Query to retrieve all the records from materialized view 
+
+
+
+
