@@ -1,0 +1,99 @@
+SemiStructured Queries
+1 ->
+<!-- 
+  Query 1: Extract JSON Fields as Columns:  
+> Retrieve the `name`, `age`, and `location` for each customer. The `age`
+and `location` fields are stored inside the `profile` JSON column. Return
+them as separate columns in the result.
+
+Sample Output::
+
+NAME	AGE	LOCATION
+Alice	30	"New York"
+Bob	25	"San Francisco"
+Charlie	35	"Chicago"
+
+ -->
+
+2->
+<!--Query 2: Filter Customers Based on Age:  
+> Write a query to list the `name` and `age` of customers whose age
+(inside the `profile` JSON) is greater than 30. The result should only 
+include customers matching this age condition.
+
+Sample Output::
+NAME	AGE
+Charlie	35
+
+-->
+
+3->
+<!-- 
+Query 3: Check if 'interests' Field Exists:  
+> For each customer, check if the `interests` field exists in the `profile`
+JSON. Return the customer `name` and a new column called `has_interests`, 
+which should be `'Yes'` if `interests` exists and `'No'` if it does not.
+
+Sample Output::
+
+NAME	AGE	LOCATION
+Alice	30	"New York"
+Bob	25	"San Francisco"
+Charlie	35	"Chicago"
+
+
+-->
+
+<!--
+create or replace database semi_structured_lab;
+use database semi_structured_lab;
+create or replace schema lab_schema;
+use schema lab_schema;
+create or replace warehouse lab_wh with warehouse_size = 'xsmall' auto_suspend = 60
+auto_resume = true;
+use warehouse lab_wh;
+CREATE OR REPLACE TABLE customer_profiles (
+    customer_id INT,
+    name STRING,
+    profile VARIANT
+ );
+ INSERT INTO customer_profiles (customer_id, name, profile)
+ SELECT 1, 'Alice', PARSE_JSON('{
+  "age": 30,
+  "location": "New York",
+  "interests": ["books", "music"]
+ }')
+ UNION ALL
+ SELECT 2, 'Bob', PARSE_JSON('{
+  "age": 25,
+  "location": "San Francisco",
+  "interests": ["gaming", "travel"]
+ }')
+ UNION ALL
+ SELECT 3, 'Charlie', PARSE_JSON('{
+  "age": 35,
+  "location": "Chicago"
+ }');
+ select customer_id, name, 
+ profile:age as age,
+ profile:location as location
+ from customer_profiles;
+ select name, profile:location location from customer_profiles where profile:age > 30;
+ CREATE OR REPLACE TABLE orders (
+    order_id INT,
+    customer_name STRING,
+    items VARIANT
+ );
+ INSERT INTO orders (order_id, customer_name, items)
+ SELECT 101, 'Alice', PARSE_JSON('[{"item": "Book", "price": 15.5}, {"item": 
+"Notebook", "price": 5.0}]')
+ UNION ALL
+ SELECT 102, 'Bob', PARSE_JSON('[{"item": "Mouse", "price": 25.0}, {"item": 
+"Keyboard", "price": 45.0}]');
+select order_id, customer_name, flattened.value:item as item, flattened.value:price as price from orders, 
+lateral flatten (input => items) as flattened;
+-->
+
+-- select name, profile:age age, profile:location location from customer_profiles;
+-- select name, profile:age from customer_profiles where profile:age > 30;
+-- select name, iff(profile:interests is not null, 'Yes', 'No') as has_interests from customer_profiles;

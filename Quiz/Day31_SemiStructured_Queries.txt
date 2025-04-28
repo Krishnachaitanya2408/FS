@@ -1,0 +1,38 @@
+4->
+<!--
+ Query 4: Flatten Interests into Individual Rows:  
+> Each customer's `profile` JSON contains an array of `interests`. Write a query to return one row per interest, along with the customer's `name`. Use the `FLATTEN` function to handle the array.
+
+Sample Output::
+
+NAME	INTEREST
+Alice	"books"
+Alice	"music"
+Bob	"gaming"
+Bob	"travel"
+
+-->
+select name, flat.value as interests from customer_profiles,
+lateral flatten(input=>profile:interests) as flat;
+
+
+5 ->
+<!--
+ Query 5: Count How Many Customers Have Each Interest:  
+> Using the `profile:interests` array, count how many customers have each 
+unique interest. Return two columns: `interest` and `total_customers`.
+Flatten the interests array and group the results by interest.
+
+Sample Output::
+
+INTEREST	TOTAL_CUSTOMERS
+books        	1
+music       	1
+gaming      	1
+travel      	1
+
+
+-->
+select interest, count(interest) as total_customers from
+(select flat.value as interest from customer_profiles, lateral flatten(input=>profile:interests) as flat) 
+group by interest; 
