@@ -295,3 +295,193 @@ Sample Output:
 printjson(
 	db.employees.find({$and:[{"address.pinCode": {$mod:[2, 0]}}, {"address.pinCode": {$gt:400000}}]}, {_id:0, name:1, address:1})
 )
+
+
+/*
+Query 11
+
+Write a MongoDB query to find employees whose names start with the letter 'A'.
+
+Sample Output:
+--------------
+[                                                                               
+  {                                                                             
+    name: 'Aarav Sharma'                                                        
+  },                                                                            
+  {                                                                             
+    name: 'Ananya Iyer'                                                         
+  }
+] 
+*/
+
+printjson(
+	db.employees.find({name : {$regex : "^A"}},{name:1, _id:0})
+)
+
+/*
+Query 12
+
+Write a MongoDB query to find employees whose names end with the letter 'a'.
+
+
+Sample Output:
+--------------
+[
+  { name: 'Aarav Sharma' },
+  { name: 'Isha Verma' },
+  { name: 'Rohan Mehta' }
+]
+
+
+*/
+
+printjson(
+	db.employees.find({name : {$regex : "a$"}},{name:1, _id:0})
+)
+
+
+/*
+
+Query 13
+
+Write a MongoDB query to find employees whose name contains the substring 'vi'
+(case-insensitive).
+
+Sample Output:
+--------------
+[ { name: 'Vikram Singh' }, 
+  { name: 'Tanvi Kulkarni' } 
+]
+
+*/
+
+printjson(
+	db.employees.find({name : {$regex : "vi", $options:"i"}},{name:1, _id:0})
+)
+
+
+/*
+
+Query 14
+
+Write a MongoDB query to find employees whose email is from the domain example.com
+and the email username ends with 'a'.
+
+Sample Output:
+--------------
+[
+  { name: 'Aarav Sharma', email: 'aarav.sharma@example.com' },
+  { name: 'Isha Verma', email: 'isha.verma@example.com' },
+  { name: 'Rohan Mehta', email: 'rohan.mehta@example.com' }
+]
+
+
+*/
+
+printjson(
+	db.employees.find({email : {$regex : /a@example.com$/}},  {name:1, email:1, _id:0})
+)
+
+/*
+
+Query 15
+
+Write a MongoDB query to find employees who live in cities whose name starts 
+with 'B' or 'C'.
+
+Sample Output:
+--------------
+[                                                                               
+  {                                                                             
+    name: 'Aarav Sharma',                                                       
+    address: {                                                                  
+      city: 'Bangalore'                                                         
+    }                                                                           
+  }                                                                             
+]  
+*/
+
+printjson(
+	db.employees.find({$or : [{"address.city" : {$regex : "^B"}}, {"address.city" : {$regex : "^C"}}]}, {name:1, "address.city":1, _id:0})
+)
+
+
+/*
+
+Query 16
+
+Write a MongoDB query to find employees whose state name in the address starts 
+with a capital letter and contains at least one whitespace (multi-word state).
+
+Sample Output:
+--------------
+[
+  { name: 'Ananya Iyer', address: { state: 'Tamil Nadu' } },
+  { name: 'Arjun Kapoor', address: { state: 'Uttar Pradesh' } },
+  { name: 'Nikhil Das', address: { state: 'West Bengal' } }
+]
+
+
+*/
+
+printjson(
+	db.employees.find({$and : [{ "address.state" : {$regex : "^[A-Z]{1}"}}, {"address.state" : {$regex : " "}}]}, {name:1, "address.state":1, _id:0})
+)
+
+
+/*
+
+Query 17
+
+Write a MongoDB query to find employees whose pin code has a repeated digit (e.g., 440001).
+
+Sample Output:
+--------------
+[
+  { name: 'Aarav Sharma', address: { pinCode: '560001' } },
+  { name: 'Isha Verma', address: { pinCode: '110001' } },
+  { name: 'Rohan Mehta', address: { pinCode: '400001' } },
+]
+
+*/
+
+printjson(
+  db.employees.find(
+    {
+      "address.pinCode": {
+        $regex: /(\d)\1/
+      }
+    },
+    {
+      name: 1,
+      "address.pinCode": 1,
+      _id: 0
+    }
+  )
+)
+
+
+/*
+Query 18
+
+Write a MongoDB query to find employees whose skills include exactly 6-character words.
+
+Sample Output:
+--------------
+[ { name: 'Neha Reddy', skills: [ 'Python', 'Django' ] } ]
+
+
+*/
+
+printjson(
+  db.employees.find(
+    {
+      skills: { $elemMatch: { $regex: /^.{6}$/ } }
+    },
+    {
+      name: 1,
+      skills: 1,
+      _id: 0
+    }
+  )
+)

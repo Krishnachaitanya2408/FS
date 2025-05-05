@@ -51,7 +51,7 @@ public class Day32P3 {
             res.add(new ArrayList<>(l));
             return;
         }
-        for(int k=2;k<n;k++){
+        for(int k=i;k<n;k++){
             if(n%currP==0 && currP*k<=n){
                 t.add(k);
                 dfs(k, n, currP*k, t);
