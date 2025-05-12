@@ -63,6 +63,7 @@ public class Day40P2{
             p[i] = sc.nextInt();
         }
         
+        sc.close();
         Arrays.sort(p);
         
         int i=0;

@@ -76,6 +76,8 @@ public class Day40P1{
                 grid[i][j] = sc.nextInt();
             }
         }
+
+        sc.close();
         int count = 0;
         int[][] vis = new int[r][c];
         for(int[] row : vis) Arrays.fill(row, -1);
