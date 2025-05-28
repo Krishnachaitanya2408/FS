@@ -1,0 +1,6 @@
+empno,empname,sal,designation,dept
+1001,John,50000,Engineer,IT
+1002,Alice,60000,Manager,HR
+1003,Ravi,45000,Analyst,Finance
+1004,Neha,55000,Lead,IT
+1005,Kumar,47000,Tester,QA
