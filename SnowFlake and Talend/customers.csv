@@ -1,0 +1,4 @@
+cust_id,first_name,last_name,email,phone
+101,John,Doe,john.doe@example.com,9876543210
+102,Jane,,jane.doe@sample,98765ABCD
+103,Bob,Smith,bob.smith@gmail.com,8765432109

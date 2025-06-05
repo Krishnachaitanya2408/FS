@@ -1,0 +1,425 @@
+
+<style>
+    /* Add your custom styles for menu items */
+    .custom-menu-item {
+        /* Your styling properties here */
+        margin: 5px;
+        padding: 10px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    /* Style the logout item differently */
+    .custom-menu-item-logout {
+        /* Your styling properties for the logout item */
+        color: #ff0000; /* Red color for logout item */
+    }
+</style>
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>NGIT &amp; KMEC FS Elite 2025: WORKFLOW_EX1</title>
+    <link rel="shortcut icon" href="http://10.11.52.200/theme/image.php/boost/theme/1745306589/favicon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, NGIT &amp; KMEC FS Elite 2025: WORKFLOW_EX1" />
+<link rel="stylesheet" type="text/css" href="http://10.11.52.200/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="http://10.11.52.200/theme/styles.php/boost/1745306589_1/all" />
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"http:\/\/10.11.52.200","homeurl":{},"sesskey":"tsKjjl8uBZ","sessiontimeout":"28800","sessiontimeoutwarning":"1200","themerev":"1745306589","slasharguments":1,"theme":"boost","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1745306589","admin":"admin","svgicons":true,"usertimezone":"Asia\/Kolkata","courseId":1720,"courseContextId":3060,"contextid":3974,"contextInstanceId":568,"langrev":1745306589,"templaterev":"1745306589"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"http:\/\/10.11.52.200\/lib\/yuilib\/3.17.2\/","comboBase":"http:\/\/10.11.52.200\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"http:\/\/10.11.52.200\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"http:\/\/10.11.52.200\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"http:\/\/10.11.52.200\/theme\/yui_combo.php?m\/1745306589\/","combine":true,"comboBase":"http:\/\/10.11.52.200\/theme\/yui_combo.php?","ext":false,"root":"m\/1745306589\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-passwordunmask":{"requires":[]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_html-beautify":{},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"http:\/\/10.11.52.200\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"http:\/\/10.11.52.200\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1745306589\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/10.11.52.200\/lib\/javascript.php\/1745306589\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"http:\/\/10.11.52.200\/lib\/javascript.php\/1745306589\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.9\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  id="page-mod-resource-view" class="format-topics  path-mod path-mod-resource chrome dir-ltr lang-en yui-skin-sam yui3-skin-sam 10-11-52-200 pagelayout-incourse course-1720 context-3974 cmid-568 cm-type-resource category-5 uses-drawers drawer-open-index">
+<div class="toast-wrapper mx-auto py-0 fixed-top" role="status" aria-live="polite"></div>
+<div id="page-wrapper" class="d-print-block">
+
+    <div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">Skip to main content</a>
+</div><script src="http://10.11.52.200/lib/javascript.php/1745306589/lib/polyfills/polyfill.js"></script>
+<script src="http://10.11.52.200/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.js"></script><script src="http://10.11.52.200/lib/javascript.php/1745306589/lib/javascript-static.js"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+    <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="Site navigation">
+    
+        <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+            <span class="navbar-toggler-icon"></span>
+            <span class="sr-only">Side panel</span>
+        </button>
+    
+        <a href="http://10.11.52.200/my/courses.php" class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn">
+    
+                <img src="http://10.11.52.200/pix/toofanlogo.png" class="logo mr-1" alt="NGIT-TOOFAAN">
+        </a>
+            <div class="primary-navigation">
+                <nav class="moremenu navigation">
+                    <ul id="moremenu-683e832a3d2c7-navbar-nav" role="menubar" class="nav more-nav navbar-nav">
+                                <li data-key="home" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Home
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/dashboard.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Dashboard
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/assignments.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Assignments
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/completedtasks.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Completed Tasks
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/reports.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Reports
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/api.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                API Reference
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/studymaterial.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Study Material
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/local/student/feedback.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Feedback
+                                            </a>
+                                </li>
+                                <li data-key="" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="http://10.11.52.200/calendar/view.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Calendar
+                                            </a>
+                                </li>
+                        <li role="none" class="nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
+                            <a class="dropdown-toggle nav-link " href="#" id="moremenu-dropdown-683e832a3d2c7" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                                More
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-683e832a3d2c7" role="menu">
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    
+        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+            <!-- page_heading_menu -->
+            
+        </ul>
+    
+        <div id="usernavigation" class="navbar-nav ml-auto">
+            
+            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                    
+                    <div class="usermenu">
+                            <!-- Render the user action menu items without the dropdown -->
+                            <div id="user-action-menu" class="h-100">
+                                <div id="usermenu-carousel" class="carousel slide" data-touch="false" data-interval="false" data-keyboard="false">
+                                    <div class="carousel-inner">
+                                        <div id="carousel-item-main" class="carousel-item active" role="menu" tabindex="-1" aria-label="User">
+                                                <div class="dropdown-divider"></div>
+                                                    <a href="http://10.11.52.200/login/logout.php?sesskey=tsKjjl8uBZ" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                            
+                                                        Log out (MADDUKURI KRISHNA CHAITANYA NGIT)
+                                                    </a>
+                                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            
+        </div>
+    </nav>
+    
+
+<div  class="drawer drawer-left drawer-primary d-print-none not-initialized" data-region="fixed-drawer" id="theme_boost-drawers-primary" data-preference="" data-state="show-drawer-primary" data-forceopen="0" data-close-on-resize="1">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_boost-drawers-primary"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Close drawer"
+        >
+            <i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i>
+        </button>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                <div class="list-group">
+                <a href="http://10.11.52.200/" class="list-group-item list-group-item-action  " >
+                    Home
+                </a>
+                <a href="http://10.11.52.200/local/student/dashboard.php" class="list-group-item list-group-item-action  " >
+                    Dashboard
+                </a>
+                <a href="http://10.11.52.200/local/student/assignments.php" class="list-group-item list-group-item-action  " >
+                    Assignments
+                </a>
+                <a href="http://10.11.52.200/local/student/completedtasks.php" class="list-group-item list-group-item-action  " >
+                    Completed Tasks
+                </a>
+                <a href="http://10.11.52.200/local/student/reports.php" class="list-group-item list-group-item-action  " >
+                    Reports
+                </a>
+                <a href="http://10.11.52.200/local/student/api.php" class="list-group-item list-group-item-action  " >
+                    API Reference
+                </a>
+                <a href="http://10.11.52.200/local/student/studymaterial.php" class="list-group-item list-group-item-action  " >
+                    Study Material
+                </a>
+                <a href="http://10.11.52.200/local/student/feedback.php" class="list-group-item list-group-item-action  " >
+                    Feedback
+                </a>
+                <a href="http://10.11.52.200/calendar/view.php" class="list-group-item list-group-item-action  " >
+                    Calendar
+                </a>
+        </div>
+
+    </div>
+</div>
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers   drag-container">
+        <div id="topofscroll" class="main-inner">
+            <div class="drawer-toggles d-flex">
+            </div>
+            <header id="page-header" class="header-maxwidth d-print-none">
+    <div class="w-100">
+        <div class="d-flex flex-wrap">
+            <div id="page-navbar">
+                <nav aria-label="Navigation bar">
+    <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="http://10.11.52.200/course/view.php?id=1720#section-39"  title="NGIT &amp; KMEC FS Elite 2025">NGIT &amp; KMEC FS Elite 2025</a>
+                </li>
+        
+                <li class="breadcrumb-item"><span>WORKFLOW_EX1</span></li>
+        </ol>
+</nav>
+            </div>
+            <div class="ml-auto d-flex">
+                
+            </div>
+            <div id="course-header">
+                
+            </div>
+        </div>
+        <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <div class="page-context-header"><div class="page-header-image mr-2"><div class="content activityiconcontainer modicon_resource"><img class="icon activityicon " aria-hidden="true" src="http://10.11.52.200/theme/image.php/boost/resource/1745306589/monologo?filtericon=1" alt="" /></div></div><div class="page-header-headings"><h1 class="h2">WORKFLOW_EX1</h1></div></div>
+                    </div>
+            <div class="header-actions-container ml-auto" data-region="header-actions-container">
+            </div>
+        </div>
+    </div>
+</header>
+            <div id="page-content" class="pb-3 d-print-block">
+                <div id="region-main-box">
+                    <section id="region-main" aria-label="Content">
+
+                        <span class="notifications" id="user-notifications"></span>
+                            <span id="maincontent"></span>
+                            <div class="activity-header" data-for="page-activity-header"></div>
+                        <div role="main"><div class="resourcecontent resourceimg"><img title="WORKFLOW_EX1" class="resourceimage" src="http://10.11.52.200/pluginfile.php/3974/mod_resource/content/1/EX1_PIPELINE.png" alt="" /></div></div>
+                        
+                        
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page-footer" class="footer-popover bg-white">
+            <div data-region="footer-container-popover">
+                <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="Show footer">
+                    <i class="icon fa fa-question fa-fw " aria-hidden="true"  ></i>
+                </button>
+            </div>
+            <div class="footer-content-popover container" data-region="footer-content-popover">
+                <!--removing contact site support link from footer start-->
+                    <!--<div class="footer-section p-3 border-bottom">
+        
+        
+                            <div>
+                            <a href="http://10.11.52.200/user/contactsitesupport.php"><i class="icon fa fa-envelope-o fa-fw " aria-hidden="true"  ></i>Contact site support</a>
+                            </div>
+                    </div>-->
+                <!--removing contact site support link from footer start-->
+                <div class="footer-section p-3 border-bottom">
+                    <div class="logininfo">
+                        <div class="logininfo">You are logged in as MADDUKURI KRISHNA CHAITANYA NGIT (<a href="http://10.11.52.200/login/logout.php?sesskey=tsKjjl8uBZ">Log out</a>)</div>
+                    </div>
+                    <div class="tool_usertours-resettourcontainer">
+                    </div>
+        
+                    
+                    <script>
+//<![CDATA[
+var require = {
+    baseUrl : 'http://10.11.52.200/lib/requirejs.php/1745306589/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'http://10.11.52.200/lib/javascript.php/1745306589/lib/jquery/jquery-3.6.0.min',
+        jqueryui: 'http://10.11.52.200/lib/javascript.php/1745306589/lib/jquery/ui-1.13.0/jquery-ui.min',
+        jqueryprivate: 'http://10.11.52.200/lib/javascript.php/1745306589/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="http://10.11.52.200/lib/javascript.php/1745306589/lib/requirejs/require.min.js"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");
+require(['core/first'], function() {
+require(['core/prefetch'])
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp('en');
+});;
+M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+
+    require(['core/moremenu'], function(moremenu) {
+        moremenu(document.querySelector('#moremenu-683e832a3d2c7-navbar-nav'));
+    });
+;
+
+    require(['core/usermenu'], function(UserMenu) {
+        UserMenu.init();
+    });
+;
+
+require(['theme_boost/drawers']);
+;
+
+require(['theme_boost/footer-popover'], function(FooterPopover) {
+    FooterPopover.init();
+});
+;
+
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete('theme_boost/loader');
+});
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(3974, []); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+    M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","yes":"Yes","no":"No","cancel":"Cancel","confirm":"Confirm","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error","file":"File","url":"URL","collapseall":"Collapse all","expandall":"Expand all"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} links to this file","select":"Select"},"admin":{"confirmdeletecomments":"You are about to delete comments, are you sure?","confirmation":"Confirmation"},"debug":{"debuginfo":"Debug info","line":"Line","stacktrace":"Stack trace"},"langconfig":{"labelsep":": "}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"MathJax.Hub.Config({\r\n    config: [\"Accessible.js\", \"Safe.js\"],\r\n    errorSettings: { message: [\"!\"] },\r\n    skipStartupTypeset: true,\r\n    messageStyle: \"none\"\r\n});\r\n","lang":"en"});
+});
+M.util.help_popups.setup(Y);
+ M.util.js_pending('random683e832a3df792'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random683e832a3df792'); });
+})();
+//]]>
+</script>
+
+                </div>
+                <div class="footer-section p-3">
+                    <div>Powered by Teleparadigm Networks</div>
+                </div>
+            </div>
+        
+            <div class="footer-content-debugging footer-dark bg-dark text-light">
+                <div class="container-fluid footer-dark-inner">
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+</div>
+
+</body>
+</html>
