@@ -1,0 +1,502 @@
+
+/*
+query 2: 
+
+Task:
+Write a SQL query to find the average value of all orders for each payment mode
+(e.g., Credit Card, UPI, Net Banking, etc.).
+
+Expected Output Columns:
+
+payment_mode
+
+avg_order_value (rounded to 2 decimal places)
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: orders
+Field   Type    Null    Key     Default Extra                                   
+order_id        int     NO      PRI     NULL                                    
+customer_id     int     YES             NULL                                    
+order_date      date    YES             NULL                                    
+total_amount    decimal(10,2)   YES             NULL                            
+payment_mode    varchar(20)     YES             NULL                            
+status  varchar(20)     YES             NULL                       
+
+-------------------
+
+
+
+Sample Output:
+--------------
+payment_mode	avg_order_value
+Credit Card	2937.50
+UPI	2862.69
+Net Banking	1960.17
+Wallet	999.99
+
+
+
+
+
+*/
+
+use fstest;
+
+select payment_mode, round(avg(total_amount),2) as avg_order_value from orders group by payment_mode;
+
+
+
+/*
+query 3: 
+
+Task:
+Write a query to identify customers who placed more than one order in the
+same week.
+
+Expected Output Columns:
+
+customer_id
+
+yr (Year)
+
+wk (Week Number)
+
+order_count
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: orders
+Field   Type    Null    Key     Default Extra                                   
+order_id        int     NO      PRI     NULL                                    
+customer_id     int     YES             NULL                                    
+order_date      date    YES             NULL                                    
+total_amount    decimal(10,2)   YES             NULL                            
+payment_mode    varchar(20)     YES             NULL                            
+status  varchar(20)     YES             NULL                       
+
+-------------------
+
+
+
+Sample Output:
+--------------
+customer_id	yr	wk	order_count
+1003	2023	36	2
+
+
+
+
+
+
+*/
+
+use fstest;
+
+select customer_id, year(order_date) as yr, week(order_date) as wk, count(*) as order_count from orders 
+group by customer_id, year(order_date), week(order_date) having order_count>1;
+
+
+
+/*
+query 4: 
+
+Task:
+Write a SQL query to calculate how many days each employee was present in each
+calendar month.
+
+Expected Output Columns:
+
+emp_id
+emp_name
+month (in YYYY-MM format)
+working_days
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: employee_attendance
+
+Field	Type	Null	Key	Default	Extra
+emp_id	int	YES		NULL	
+emp_name	varchar(50)	YES		NULL	
+login_date	date	YES		NULL	
+status	varchar(10)	YES		NULL	
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+emp_id	emp_name	month	working_days
+1	Alice	2023-10	2
+2	Bob	2023-10	3
+4	David	2023-10	3
+
+
+
+
+
+
+
+*/
+use fstest;
+SELECT 
+    emp_id, 
+    emp_name, 
+    DATE_FORMAT(login_date, '%Y-%m') AS month, 
+    COUNT(DISTINCT login_date) AS working_days
+FROM 
+    employee_attendance
+WHERE 
+    status = 'Present'
+GROUP BY 
+    emp_id, emp_name, DATE_FORMAT(login_date, '%Y-%m');
+
+
+
+/*
+query 5: 
+
+Task:
+Write a query to find employees who were absent for 3 or more days in October.
+
+Expected Output Columns:
+
+emp_id
+absent_days
+
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: employee_attendance
+
+Field	Type	Null	Key	Default	Extra
+emp_id	int	YES		NULL	
+emp_name	varchar(50)	YES		NULL	
+login_date	date	YES		NULL	
+status	varchar(10)	YES		NULL	
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+emp_id	consecutive_absences
+3	3
+
+
+
+
+
+
+
+
+*/
+
+
+USE fstest;
+
+SELECT 
+    emp_id,
+    COUNT(*) AS consecutive_absences
+FROM 
+    employee_attendance
+WHERE 
+    status = 'absent'
+    AND MONTH(login_date) = 10
+    AND YEAR(login_date) = 2023
+GROUP BY 
+    emp_id
+HAVING 
+    COUNT(*) >= 3;
+
+
+
+/*
+query 6: 
+
+Task:
+Write a SQL query to determine which employee had the highest attendance
+percentage in October 2023.
+Assume each date entry counts as 1 working day.
+
+Expected Output Columns:
+
+emp_id
+emp_name
+attendance_percent
+
+
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: employee_attendance
+
+Field	Type	Null	Key	Default	Extra
+emp_id	int	YES		NULL	
+emp_name	varchar(50)	YES		NULL	
+login_date	date	YES		NULL	
+status	varchar(10)	YES		NULL	
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+emp_id	emp_name	attendance_percent
+4	David	100.00
+
+
+
+
+*/
+USE fstest;
+SELECT emp_id,emp_name,ROUND((SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) * 100.0) / COUNT(*), 2) AS attendance_percent
+FROM employee_attendance
+WHERE MONTH(login_date) = 10 AND YEAR(login_date) = 2023
+GROUP BY emp_id, emp_name
+ORDER BY attendance_percent DESC
+LIMIT 1;
+
+
+
+/*
+query 7: 
+
+Task:
+Write a query to identify students who have completed every course they 
+enrolled in (i.e., have no active or dropped status).
+
+Expected Output Columns:
+student_id
+
+
+
+
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: course_enrollments
+
+Field	Type	Null	Key	Default	Extra
+enrollment_id	int	YES		NULL	
+student_id	int	YES		NULL	
+course_name	varchar(100)	YES		NULL	
+enrollment_date	date	YES		NULL	
+completion_percent	decimal(5,2)	YES		NULL	
+status	varchar(15)	YES		NULL	
+
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+student_id
+101
+104
+
+
+*/
+
+USE fstest;
+
+SELECT 
+    student_id
+FROM 
+    course_enrollments
+GROUP BY 
+    student_id
+HAVING 
+    SUM(CASE WHEN status IN ('active', 'dropped') THEN 1 ELSE 0 END) = 0;
+
+
+
+
+/*
+query 8: 
+
+Task:
+Write a SQL query to compute the average completion percentage for each course.
+
+Expected Output Columns:
+
+course_name
+avg_progress
+
+
+
+
+
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: course_enrollments
+
+Field	Type	Null	Key	Default	Extra
+enrollment_id	int	YES		NULL	
+student_id	int	YES		NULL	
+course_name	varchar(100)	YES		NULL	
+enrollment_date	date	YES		NULL	
+completion_percent	decimal(5,2)	YES		NULL	
+status	varchar(15)	YES		NULL	
+
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+course_name	avg_progress
+Java Programming	45.00
+Python Programming	41.67
+Database Design	10.00
+Web Development	68.33
+*/
+
+
+
+
+/*
+query 9: 
+
+Task:
+Write a query to identify students who enrolled in more than 3 courses but 
+have not completed any of them.
+
+Expected Output Columns:
+student_id
+
+
+
+
+
+
+
+
+
+
+---------------
+Database Name: fstest
+---------------
+
+TABLE: course_enrollments
+
+Field	Type	Null	Key	Default	Extra
+enrollment_id	int	YES		NULL	
+student_id	int	YES		NULL	
+course_name	varchar(100)	YES		NULL	
+enrollment_date	date	YES		NULL	
+completion_percent	decimal(5,2)	YES		NULL	
+status	varchar(15)	YES		NULL	
+
+                     
+
+-------------------
+
+
+
+Sample Output:
+--------------
+student_id
+105
+
+*/
+
+
+course_enrollments
+
+enrollment_id	student_id	course_name	enrollment_date	completion_percent	status
+1	101	Java Programming	2023-06-01	100.00	completed
+2	102	Java Programming	2023-06-05	50.00	active
+3	101	Python Programming	2023-07-01	100.00	completed
+4	103	Python Programming	2023-07-03	0.00	dropped
+5	102	Database Design	2023-07-05	20.00	active
+6	101	Web Development	2023-08-01	100.00	completed
+7	104	Web Development	2023-08-05	90.00	completed
+8	105	Java Programming	2023-09-01	30.00	active
+9	105	Python Programming	2023-09-01	25.00	active
+10	105	Web Development	2023-09-01	15.00	active
+11	105	Database Design	2023-09-01	0.00	active
+12	106	Java Programming	2023-09-05	0.00	active
+
+
+
+employee_attendance
+
+emp_id	emp_name	login_date	status
+1	Alice	2023-10-01	present
+1	Alice	2023-10-02	present
+1	Alice	2023-10-03	absent
+1	Alice	2023-10-04	leave
+2	Bob	2023-10-01	present
+2	Bob	2023-10-02	present
+2	Bob	2023-10-03	present
+3	Charlie	2023-10-01	absent
+3	Charlie	2023-10-02	absent
+3	Charlie	2023-10-03	absent
+4	David	2023-10-01	present
+4	David	2023-10-02	present
+4	David	2023-10-03	present
+
+
+Orders
+
+
+order_id	customer_id	order_date	total_amount	payment_mode	status
+1	1001	2023-09-01	2500.00	Credit Card	delivered
+2	1002	2023-09-02	1500.00	UPI	pending
+3	1003	2023-09-03	1800.00	Net Banking	cancelled
+4	1001	2023-09-04	3200.00	Credit Card	delivered
+5	1002	2023-09-07	2999.99	UPI	delivered
+6	1003	2023-09-08	3100.50	Net Banking	delivered
+7	1004	2023-09-09	999.99	Wallet	cancelled
+8	1005	2023-09-09	4700.00	Credit Card	pending
+9	1005	2023-09-10	1350.00	Credit Card	delivered
+10	1001	2023-09-11	4250.75	UPI	delivered
+11	1002	2023-09-12	980.00	Net Banking	delivered
+12	1004	2023-09-13	2700.00	UPI	delivered

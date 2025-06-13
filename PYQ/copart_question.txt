@@ -1,0 +1,58 @@
+1.Count the number of Duplicates
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more
+than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+
+2.Given an integer N, write a program that returns true if the given number is a palindrome,
+else return false. Assume N > 99 and can be of any number of digits...
+
+3. Implement strStr() not using the standard strStr function. Return the index of the
+first occurrence of str1 and str2, or -1 if strl is not part of str2. (Eg: if s1 = "one",
+and s2 = "tone", strStr(s1,s2) should return 1)
+
+4.Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+
+5. Write a recursive algorithm to calculate the value of 2 to the power of n.
+
+6. Perfect number is a number whose sum of all factors (not including the number, but including 1) is equal to the number itself. 
+Write a program to find if the given number is a perfect number.
+
+7. Write a function stringy that takes a size and returns a string of alternating '1 s' and 'Os'.
+   the string should start with a 1. 
+   a string with size 6 should return :101010'.
+   with size 4 should return : '1010'.
+   with size 12 should return : 101010101010'.
+   The size will always be positive and will only use whole numbers.
+
+8. Write a program for the following problem:
+
+Given a number, find the sum of all the numbers less than that number and a multiple of either 3 or 5..
+If the number is multiple of both 3 and 5 then consider only once.
+
+
+-----------------------------------------------------------------
+
+
+1. Write a program to sort an array of input numbers in ascending order and print.
+   You have to use Bubble sort algorithm.
+  (Hint: Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order)
+
+2. Write a program to find the age of a person given his date of birth in dd-mm-yvyy
+   format. (Eg: dob= 03-03-1976, current-date = 22-10-2021, => age = 45)
+
+3. Write a program that prints the next 20 leap years.
+
+4. Write a program to print a square with "*"s for a given length of the side of the square.
+
+5. Given a string s consisting of some words separated by some number of spaces, return the length of the last word in the string. A word is a maximal substring consisting of non-space characters only.
+   Example 1: Input: s = "Hello World" Output: 5 Explanation: The last word is "World" with length 5.
+   Example 2: Input:s =" fly me to the moon " Output: 4 Explanation: The last word is "moon" with length 4.
+   Example 3: Input: s = "luffy is still joyboy" Output: 6 Explanation: The last word is "joyboy* with length 6.
+
+6. Given an array of integers nums and an integer target N, return indices of the two numbers such that they add up to N.
+
+7. Write a recursive algorithm to calculate the value of 2 to the power of n.
+
+8. Perfect number is a number whose sum of all factors (not including the number, but including 1) is equal to the number itself. 
+   Write a program to find if the given number is a perfect number.
