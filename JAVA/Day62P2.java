@@ -39,3 +39,25 @@ Sample Output:
  
 */
 
+
+import java.util.*;
+
+public class Day62P2 {
+    public static void main(String... args) {
+        Scanner sc = new Scanner(System.in);
+        String[] words = sc.nextLine().split(" ");
+        int k = sc.nextInt();
+        int count = 0;
+
+        for (String word : words) {
+            int len = word.length();
+            int rot = k % len;
+            String rotated = word.substring(len - rot) + word.substring(0, len - rot);
+            if (rotated.equals(word)) {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+    }
+}
