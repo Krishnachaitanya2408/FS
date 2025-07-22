@@ -1,0 +1,4 @@
+emp_id,emp_name,dept,email,salary,alter_flag,timestamp,resolution_status
+E102,Bob,Finance,bob@company.com,,YES,2025-07-18T05:15:47Z,Pending
+E103,Charlie,IT,charlie@company.com,-4000,YES,2025-07-18T05:15:47Z,Pending
+E105,Eve,HR,eve@company.com,abc,YES,2025-07-18T05:15:47Z,Pending

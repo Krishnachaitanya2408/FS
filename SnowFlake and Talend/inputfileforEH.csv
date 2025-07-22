@@ -1,0 +1,7 @@
+emp_id,emp_name,dept,salary,email
+E001,John Doe,IT,50000,john.doe@example.com
+E002,Alice Smith,HR,,alice@example.com
+E003,Bob Lee,Finance,-1000,bob.lee@example.com
+E004,Carol White,Marketing,60000,carol@example.com
+E005,David Grey,IT,55000,
+E006,Eva Black,Sales,abc,eva@example.com

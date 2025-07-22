@@ -1,0 +1,4 @@
+emp_id,emp_name,dept,email,salary,alter_flag
+E102,Bob,Finance,bob@company.com,,YES
+E103,Charlie,IT,charlie@company.com,-4000,YES
+E105,Eve,HR,eve@company.com,abc,YES

@@ -1,0 +1,7 @@
+emp_id,emp_name,dept,email,salary
+E101,Alice,HR,alice@company.com,55000
+E102,Bob,Finance,bob@company.com,
+E103,Charlie,IT,charlie@company.com,-4000
+E104,David,IT,david@company.com,70000
+E105,Eve,HR,eve@company.com,abc
+E106,Frank,Admin,frank@company.com,62000

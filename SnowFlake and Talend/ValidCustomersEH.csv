@@ -1,0 +1,4 @@
+emp_id,emp_name,dept,email,salary,alter_flag
+E101,Alice,HR,55000,55000,NO
+E104,David,IT,70000,70000,NO
+E106,Frank,Admin,62000,62000,NO
